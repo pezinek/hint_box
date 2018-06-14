@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pezinek/hint_box.svg?branch=master)](https://travis-ci.org/pezinek/hint_box)
+
 # Hint Box
 
 Hint Box is meant as a game for kids where they look for hidden iButtons and get additional instructions/hints for each new iButton they find.
