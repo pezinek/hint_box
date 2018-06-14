@@ -13,9 +13,9 @@ const int max_rows=2;
 
 // Hints
 
-const char* msgs[] = {
+const char* const msgs[] = {
     // Wellcome message
-    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist \"hrnickove\" prsteny. Nenasli jste nahodou nejake ?", 
+    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist prsteny s hrnkem. Nenasli jste nahodou nejake ?", 
     // Default message for unknown iButtons
     "Eeeee, Mmmmmm, Zzzzzz, Nejde to, tenhle je nejakej divnej, ten fakt precist nedokazu, zkus jinej.",
     // Messages to be referenced from address_map bellow
