@@ -25,6 +25,8 @@ So far the instructions are hard-coded and every new game requires rewrite of th
 
 If you plan to re-use this game go to ```src/main.cpp``` and modify the messages in ```msgs[]``` and the iButton mapping in ```address_map[]``` and recompile.
 
+Addresses of all iButtons scanned are printed on serial at 9600 baud. (... just in case you need new to know the OneWire addresses as Hint Box recognizes them)
+
 ## FixMe
 
 - Due to the memmory limitation of the Arduino UNO the number of registered hints is limitted to approx. 10 (based on their lenght)
