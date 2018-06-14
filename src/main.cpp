@@ -15,15 +15,15 @@ const int max_rows=2;
 
 const char* msgs[] = {
     // Wellcome message
-    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist \"kavove\" prsteny. Nenasli jste nahodou nejake ?", 
+    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist \"hrnickove\" prsteny. Nenasli jste nahodou nejake ?", 
     // Default message for unknown iButtons
     "Eeeee, Mmmmmm, Zzzzzz, Nejde to, tenhle je nejakej divnej, ten fakt precist nedokazu, zkus jinej.",
     // Messages to be referenced from address_map bellow
     "Tak tenhle prsten rika, ze ho mate hned vratit tatkovi a uz mu ho nebrat ! Tak sup ulicnici ... :-)",
-    "Jee nasli jste prvni kavovy prsten bezva ! Zkuste najit dalsi, tenhle je nejakej divnej, rika samy nesmysly, prej ze mate projit branami vecneho kvileni a hned za nimi najit v korunach raj kosu tresnozroutu. No rikala jsem ze tenhle prsten je trochu na hlavu (nebo co to vlastne maji prsteny misto hlavy), ale snad si poradite a jestli ne tak Sisla za to nemuze :-)",
+    "Jee nasli jste prvni hrnickovy prsten bezva ! Zkuste najit dalsi, tenhle je nejakej divnej, rika samy nesmysly, prej ze mate projit branami vecneho kvileni a odebrat se do letnich lovist kosu tresnomilnych. No rikala jsem ze tenhle prsten je trochu na hlavu (nebo co to vlastne maji prsteny misto hlavy), ale snad si poradite a jestli ne, tak Sisla za to nemuze :-)",
     "Ano ano! A je tu dalsi prsten vazene damy a panove, ale je asi zasifrovanej rika ze prej: 301\x01 6m, 219\x01 14m, 309\x01 29m, 40\x01 12m, 311\x01 7m, 45\x01 111m, 311\x01 34m, 38\x01 94m. Divny co ?",
-    "No konecne jste nasli prsten se kterym se da normalne mluvit! Prej ze je tu zakopanej -=<* POKLAD *>=- ale nevi presne kde. Ale naucil me rymovacku, poslouchejte: \"Jedna kupa za druhou, od zapadu v rade jsou.\", dobry co ? No neni proste zabavny ?",
-    "Jo! Dalsi prsten! Bezva! ... aaa pozor, tenhle se mnou nechce bavit, ze prej je to hlidaci prsten a strezi tajemstvi pokladu velkych Sacharidu. Hraje si na dulezityho pana hlidace a klic beztak schoval nekde pod rohozkou ... to zname.",
+    "No konecne jste nasli prsten se kterym se da normalne mluvit! Prej ze je tu zakopanej -=<* POKLAD *>=- , ale nevi presne kde. Ale naucil me rymovacku, poslouchejte: \"Jedna kupa za druhou, od zapadu v rade jsou.\", dobry co ? No neni proste zabavny ?",
+    "Jo! Dalsi prsten! Bezva! ... aaa pozor, tenhle se se mnou nechce bavit, ze prej je to hlidaci prsten a strezi tajemstvi pokladu velkych Sacharidu. Hraje si na dulezityho pana hlidace a klic beztak schoval nekde pod rohozkou ... to zname.",
     "Tohle je Petruv hudebni prsten, prece necekate, ze displej umi zpivat ze ne ?",
     "Tohle je Andrejcin pohadkovy prsten, na pohadky mam moc kratky displej, smula co ? :-("
 };
