@@ -14,10 +14,13 @@ const int max_rows=2;
 // Hints
 
 const char* msgs[] = {
-    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist \"slunecni\" prsteny. Nenasli jste nahodou nejake ?", 
+    // Wellcome message
+    "Ahoj, jmenuji se Elektra Arduinovna, ale rikaji mi Sisla, protoze neumim moc cesky, zato ale umim cist \"kavove\" prsteny. Nenasli jste nahodou nejake ?", 
+    // Default message for unknown iButtons
     "Eeeee, Mmmmmm, Zzzzzz, Nejde to, tenhle je nejakej divnej, ten fakt precist nedokazu, zkus jinej.",
+    // Messages to be referenced from address_map bellow
     "Tak tenhle prsten rika, ze ho mate hned vratit tatkovi a uz mu ho nebrat ! Tak sup ulicnici ... :-)",
-    "Jee nasli jste prvni slunecni prsten bezva ! Zkuste najit dalsi, tenhle je nejakej divnej, rika samy nesmysly, prej ze mate projit branami vecneho kvileni a hned za nimi najit v korunach raj kosu tresnozroutu. No rikala jsem ze tenhle prsten je trochu na hlavu (nebo co to vlastne maji prsteny misto hlavy), ale snad si poradite a jestli ne tak Sisla za to nemuze :-)",
+    "Jee nasli jste prvni kavovy prsten bezva ! Zkuste najit dalsi, tenhle je nejakej divnej, rika samy nesmysly, prej ze mate projit branami vecneho kvileni a hned za nimi najit v korunach raj kosu tresnozroutu. No rikala jsem ze tenhle prsten je trochu na hlavu (nebo co to vlastne maji prsteny misto hlavy), ale snad si poradite a jestli ne tak Sisla za to nemuze :-)",
     "Ano ano! A je tu dalsi prsten vazene damy a panove, ale je asi zasifrovanej rika ze prej: 301\x01 6m, 219\x01 14m, 309\x01 29m, 40\x01 12m, 311\x01 7m, 45\x01 111m, 311\x01 34m, 38\x01 94m. Divny co ?",
     "No konecne jste nasli prsten se kterym se da normalne mluvit! Prej ze je tu zakopanej -=<* POKLAD *>=- ale nevi presne kde. Ale naucil me rymovacku, poslouchejte: \"Jedna kupa za druhou, od zapadu v rade jsou.\", dobry co ? No neni proste zabavny ?",
     "Jo! Dalsi prsten! Bezva! ... aaa pozor, tenhle se mnou nechce bavit, ze prej je to hlidaci prsten a strezi tajemstvi pokladu velkych Sacharidu. Hraje si na dulezityho pana hlidace a klic beztak schoval nekde pod rohozkou ... to zname.",
@@ -30,10 +33,11 @@ struct AddressMapEntry {
     byte addr[8];
 };
 
-// iButton to hints mapping
+// iButton to hints mapping, the first number is message index in the msgs[] array
+// and the second part is the iButton address.
 
 const AddressMapEntry address_map[] = {
-    {2, {0x16, 0x0C, 0x81, 0x06, 0x00, 0x00, 0x00, 0x07}}, // iButtons unused for the game
+    {2, {0x16, 0x0C, 0x81, 0x06, 0x00, 0x00, 0x00, 0x07}}, // iButtons lying arround my house but unused for this game
     {2, {0x0B, 0x3A, 0xD5, 0x3C, 0x00, 0x00, 0x00, 0x42}},
     {2, {0x16, 0xD9, 0xEC, 0x05, 0x00, 0x00, 0x00, 0x5D}},
     {7, {0x16, 0x06, 0x6F, 0x06, 0x00, 0x00, 0x00, 0xB0}},
@@ -132,6 +136,16 @@ int scan() {
 
 }
 
+void blink_wait() {
+    for (int i=0; i<256; i++) {
+        analogWrite(LED_PIN,i);
+        delay(1);
+    }
+    for (int i=255; i>0; i--) {
+        analogWrite(LED_PIN,i);
+        delay(1);
+    }
+};
 
 void setup() {
     // put your setup code here, to run once:
@@ -140,7 +154,7 @@ void setup() {
     Serial.println("\n[iButton Hint Box v1.0]\n");
 
     pinMode(LED_PIN, OUTPUT);
-    digitalWrite(LED_PIN, HIGH);
+    digitalWrite(LED_PIN, LOW);
 
     lcd.begin(max_chars,max_rows);
     lcd.createChar(1, degree);
@@ -153,7 +167,8 @@ void loop() {
     draw_msg();
     delay(250);
     if ((msg_char(msg_pos) == ' ') and (msg_char(msg_pos-1) != ' ')) {
-        delay(600);
+        //delay(600);
+        blink_wait();
     }
     scroll_msg();
     
